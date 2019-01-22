@@ -1,12 +1,30 @@
 {
     "pages": [
-        "pages/index/main",
-        "pages/counter/main"
+        "^pages/tabBar/store/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "WeChat",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#A3A1A1",
+        "selectedColor": "#25d3d3",
+        "backgroundColor": "#fff",
+        "borderStyle": "black",
+        "list": [{
+                "pagePath": "pages/tabBar/store/index",
+                "text": "会所"
+            },
+            {
+                "pagePath": "pages/tabBar/monitoring/index",
+                "text": "监护"
+            },
+            {
+                "pagePath": "pages/tabBar/personal/index",
+                "text": "个人中心"
+            }
+        ]
     }
 }
