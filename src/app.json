@@ -8,6 +8,11 @@
         "navigationBarTitleText": "WeChat",
         "navigationBarTextStyle": "black"
     },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "您的位置信息将用于小程序获取位置"
+        }
+    },
     "tabBar": {
         "color": "#A3A1A1",
         "selectedColor": "#25d3d3",
