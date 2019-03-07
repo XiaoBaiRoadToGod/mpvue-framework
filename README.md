@@ -2,7 +2,7 @@
 
 > A Mpvue project
 
-该项目基于mpvue，主要集成了mpvue-entry和mpvue-router-patch,支持分包加载
+该项目基于mpvue(1.4.0版本，仅支持微信小程序)，主要集成了mpvue-entry和mpvue-router-patch,支持分包加载
 
 ## Build Setup
 
