@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "flyio": "^0.6.9",
-        "mpvue": "^1.0.18",
+        "mpvue": "1.4.0",
         "mpvue-router-patch": "^0.2.1",
         "vuex": "^3.0.0",
         "wx": "^0.0.36"
@@ -45,8 +45,8 @@
         "friendly-errors-webpack-plugin": "^1.7.0",
         "fs": "0.0.1-security",
         "mpvue-entry": "^1.5.9",
-        "mpvue-loader": "^1.1.4",
-        "mpvue-template-compiler": "^1.0.18",
+        "mpvue-loader": "^1.4.0",
+        "mpvue-template-compiler": "^1.4.0",
         "mpvue-webpack-target": "^1.0.3",
         "node-sass": "^4.11.0",
         "optimize-css-assets-webpack-plugin": "^3.2.0",
