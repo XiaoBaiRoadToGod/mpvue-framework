@@ -9,35 +9,7 @@ flyio.interceptors.request.use((req) => {
     wx.showNavigationBarLoading()
     req.baseURL = baseUrlApi;
 
-    // 获取存储的 sessinId
-    let sessionid = wx.getStorageSync('sessionId')
-
-    if (req.method === 'POST') {
-        if (req.url === '/bespeakApi/user/login') { // 登录不需要sessionId
-            req.headers = { "Content-Type": "application/x-www-form-urlencoded" }
-            return req
-        }
-        // req.url == '/monitorApi/baby/jaundice/value' ||
-        if (req.url === '/bespeakApi/userCoupon/addBatch' || req.url === '/monitorApi/monito/babyPuerpera/addPuerpera' || req.url === '/monitorApi/monito/babyPuerpera/addBaby' || req.url === '/monitorApi/emotion/survey/emotiontest' || req.url === '/monitorApi/feedRecord/add' || req.url == '/monitorApi/baby/measureRecord/add' || req.url == '/monitorApi/baby/jaundice/add' || req.url == '/monitorApi/baby/measureRecord/editApp' || req.url == '/monitorApi/monito/babyPuerpera/updatePuerperaByApp') {
-            // 智能监护，修改请求头
-            // request.headers["Content-Type"] = "application/json;charset=utf-8" 
-            req.headers = { 'sessionId': sessionid, "Content-Type": "application/json" }
-            console.log(req)
-            return req
-        }
-        req.headers = { 'sessionId': sessionid, "Content-Type": "application/x-www-form-urlencoded" }
-    }
-
-
-    if (req.method === 'GET') {
-        if (req.url === '/bespeakApi/user/verification/get') {
-            return req
-        }
-        if (req.url === '/monitorApi/blueData/collect/lists') {
-            req.baseURL = 'https://p.yuezidao.cn'
-        }
-        req.headers = { 'sessionId': sessionid }
-    }
+    req.headers = { 'sessionId': 'o306K5fqSt-mkcp7Ue3MkTZVlH1c' }
     console.log(req)
     return req
 })

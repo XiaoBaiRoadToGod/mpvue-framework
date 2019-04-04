@@ -20,15 +20,15 @@
         "borderStyle": "black",
         "list": [{
                 "pagePath": "pages/tabBar/store/index",
-                "text": "会所"
+                "text": "首页"
             },
             {
                 "pagePath": "pages/tabBar/monitoring/index",
-                "text": "监护"
+                "text": "内容"
             },
             {
                 "pagePath": "pages/tabBar/personal/index",
-                "text": "个人中心"
+                "text": "我的"
             }
         ]
     }

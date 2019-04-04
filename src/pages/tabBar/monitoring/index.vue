@@ -1,5 +1,5 @@
 <template>
-  <div>监护</div>
+  <div>监护gg</div>
 </template>
 <script>
 import api from '@/api'

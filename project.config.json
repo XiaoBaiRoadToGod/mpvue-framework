@@ -8,10 +8,10 @@
 		"newFeature": true,
 		"autoAudits": false
 	},
-	"miniprogramRoot": "dist/",
+	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wxcd4b1e1d9ead8685",
-	"projectname": "mpvue-base-framework",
+	"appid": "wx46a241c600dd1e44",
+	"projectname": "yuezidao-miniprogram-2.0",
 	"condition": {
 		"search": {
 			"current": -1,

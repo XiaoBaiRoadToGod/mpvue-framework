@@ -1,6 +1,22 @@
 <template>
-    <div>首页
-
-        <a href="/packageA/logs" >click logs</a>
+    <div>
+        <wx-parse-com></wx-parse-com>
+        
     </div>
 </template>
+<script>
+import wxParseCom from '@/components/wxParse'
+export default {
+    data() {
+        return {
+
+        }
+    },
+    components: { wxParseCom }
+}
+</script>
+<style lang="scss" scoped>
+
+</style>
+
+

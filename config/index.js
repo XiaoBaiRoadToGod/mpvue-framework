@@ -7,18 +7,32 @@ var fileExtConfig = {
         style: 'css',
         platform: 'swan'
     },
+    tt: {
+        template: 'ttml',
+        script: 'js',
+        style: 'ttss',
+        platform: 'tt'
+    },
     wx: {
         template: 'wxml',
         script: 'js',
         style: 'wxss',
         platform: 'wx'
+    },
+    my: {
+        template: 'axml',
+        script: 'js',
+        style: 'acss',
+        platform: 'my'
     }
 }
-var fileExt = fileExtConfig[process.env.PLATFORM || 'wx']
+var fileExt = fileExtConfig[process.env.PLATFORM]
+
 module.exports = {
   build: {
     env: require('./prod.env'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, `../dist/${fileExt.platform}/index.html`),
+    assetsRoot: path.resolve(__dirname, `../dist/${fileExt.platform}`),
     assetsSubDirectory: '',
     assetsPublicPath: '/',
     productionSourceMap: false,
@@ -37,8 +51,12 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
+    port: 8080,
+    // 在小程序开发者工具中不需要自动打开浏览器
+    autoOpenBrowser: false,
     assetsSubDirectory: '',
     assetsPublicPath: '/',
+    proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
