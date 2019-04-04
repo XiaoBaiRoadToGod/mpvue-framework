@@ -23,11 +23,9 @@
         "build": "node build/build.js wx"
     },
     "dependencies": {
-        "echarts": "^4.2.1",
         "flyio": "^0.6.14",
         "mpvue": "^2.0.5",
         "mpvue-cropper": "^0.2.0",
-        "mpvue-echarts": "^0.2.7",
         "mpvue-router-patch": "^2.0.0",
         "mpvue-toast": "^0.1.3",
         "mpvue-wxparse": "^0.6.5",
