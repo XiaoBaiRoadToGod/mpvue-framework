@@ -9,7 +9,7 @@ flyio.interceptors.request.use((req) => {
     wx.showNavigationBarLoading()
     req.baseURL = baseUrlApi;
 
-    req.headers = { 'sessionId': 'o306K5fqSt-mkcp7Ue3MkTZVlH1c' }
+    // req.headers = { 'sessionId': 'o306K5fqSt-mkcp7Ue3MkTZVlH1c' }
     console.log(req)
     return req
 })
