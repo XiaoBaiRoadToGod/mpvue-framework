@@ -19,15 +19,11 @@
         "backgroundColor": "#fff",
         "borderStyle": "black",
         "list": [{
-                "pagePath": "pages/tabBar/store/index",
+                "pagePath": "pages/tabBar/home/index",
                 "text": "首页"
             },
             {
-                "pagePath": "pages/tabBar/monitoring/index",
-                "text": "内容"
-            },
-            {
-                "pagePath": "pages/tabBar/personal/index",
+                "pagePath": "pages/tabBar/logs/index",
                 "text": "我的"
             }
         ]

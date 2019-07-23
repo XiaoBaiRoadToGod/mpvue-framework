@@ -7,10 +7,15 @@ import * as mutations from './mutations'
 import * as getters from './getters'
 import state from './state'
 
+import home from './modules/home'
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     debug: true,
+    modules: {
+        home
+    },
     state,
     getters,
     actions,
