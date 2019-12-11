@@ -1,7 +1,7 @@
 <template>
     <div>
         {{ 'text:' + text }}
-        <van-button @click="editText" type="default" >修改text</van-button>
+        <van-button @click="editText" type="default" class="edit-text" >修改text</van-button>
         <van-button @click="onClick" type="primary" >进入分包页面</van-button>
     </div>
 </template>

@@ -20,7 +20,7 @@ import { mapGetters, mapActions } from 'vuex'
             })
         },
         mounted () {
-            console.log(this.$store)
+
         },
         methods: {
             ...mapActions({
