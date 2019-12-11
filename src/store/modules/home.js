@@ -1,38 +1,39 @@
-import * as types from "../types"
-// 容器
-const state = {
-    state: null
-}
 
-// 如同计算属性，处理state的某个状态
-const getters = {
-    [types.GET_STATE]: state => state.state
-}
 
-const mutations = {
-    [types.SET_STATE] (state, data) {
-        state.state = data
-    }
-}
-
-// actions提交 mutations ,不直接更改状态（通过store.dispatch触发）
-const actions = {
-    [types.REQUEST_DATA] ({ commit }, params) {
-        return new Promise(async (resolve, reject) => {
-            try {
-                resolve()
-            } catch (err) {
-                reject(err)
-            }
-        })
-    }
-}
-
-export default {
+  
+  
+  
+  export default {
     namespaced: true,
-    state,
-    getters,
-    actions,
-    mutations,
-
-}
+    state: {
+      text: 'home'
+    },
+    mutations: {
+        changeText (state, data) {
+            state.text = data
+      }
+  
+    },
+    actions: {
+      updateText ({ commit }, par) {
+        return new Promise(async (resolve, reject) => {
+          try {
+              /****
+               * 请求
+               */
+            // const data = await addEnterHomePage(par)
+            commit('changeText', par)
+            resolve(data)
+          } catch (e) {
+            reject(e)
+          }
+        })
+      }
+    },
+    getters: {
+      text (state) {
+        return state.text
+      }
+    }
+  }
+  

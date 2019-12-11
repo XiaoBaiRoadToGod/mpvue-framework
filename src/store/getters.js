@@ -1,1 +1,0 @@
-export const myGetter = state => state.threads

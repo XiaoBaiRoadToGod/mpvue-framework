@@ -29,7 +29,7 @@ function resolve(dir) {
 // const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
 // const entry = Object.assign({}, appEntry, pagesEntry)
 
-const entry = MpvueEntry.getEntry({ pages: 'src/router/router.js', dist: 'dist/wx'})
+const entry = MpvueEntry.getEntry({ pages: 'src/router/index.js', dist: 'dist/wx'})
 
 let baseWebpackConfig = {
     // 如果要自定义生成的 dist 目录里面的文件路径，
@@ -53,6 +53,9 @@ let baseWebpackConfig = {
         symlinks: false,
         aliasFields: ['mpvue', 'weapp', 'browser'],
         mainFields: ['browser', 'module', 'main']
+    },
+    node: {
+        fs: 'empty'
     },
     module: {
         rules: [{

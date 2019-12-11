@@ -1,11 +1,12 @@
 <template>
     <div>
-        {{ 'state:' + homeState }}
+        {{ 'text:' + text }}
+        <button @click="editText" >修改text</button>
+        <button @click="onClick" >进入分包页面</button>
     </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
-import * as types from "@/store/types";
+import { mapGetters, mapMutations } from 'vuex'
 export default {
     data() {
         return {
@@ -13,14 +14,18 @@ export default {
         }
     },
     computed: {
-        ...mapState({
-            homeState: state => state.home.state
-        })
+        ...mapGetters(['text'])
     },
     methods: {
-        ...mapActions('home', [
-            types.REQUEST_DATA
-        ])
+        ...mapMutations(['updateText']),
+        onClick() {
+            wx.navigateTo({
+                url: '/home/index'
+            })
+        },
+        editText () {
+            this.updateText('修改了')
+        }
     }
 }
 </script>
