@@ -2,7 +2,7 @@
     <div>
         二级分包页面
         {{ 'homeText:' +  homeText }}
-        <button @click="change" >修改homeText</button>
+        <van-button @click="change" type="primary" >修改homeText</van-button>
     </div>
 </template>
 

@@ -17,7 +17,7 @@ let routes = [
             navigationBarTitleText: '首页',
             enablePullDownRefresh: false,
             usingComponents: {
-                
+                'van-button': '/static/vant/button/index'
             }
         }
     },

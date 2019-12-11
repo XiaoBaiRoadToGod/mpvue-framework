@@ -3,6 +3,7 @@
 > A Mpvue project
 
 该项目基于mpvue(2.0版本)，主要集成了mpvue-entry和mpvue-router-patch,支持分包加载
+引入[vant/weapp](https://youzan.github.io/vant-weapp) 注意需要把下载下来的vant/weapp下的dist内的组件复制到static/vant
 
 ## Build Setup
 
