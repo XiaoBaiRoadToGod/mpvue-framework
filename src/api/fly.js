@@ -1,7 +1,7 @@
-import fly from 'flyio/dist/npm/wx'
+import Fly from 'flyio/dist/npm/wx'
 import baseUrlApi from './baseUrl'
 
-const flyio = new fly()
+const flyio = new Fly()
 
 // http 请求拦截器
 flyio.interceptors.request.use((req) => {
