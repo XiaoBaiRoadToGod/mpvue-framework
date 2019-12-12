@@ -8,29 +8,29 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-    export default {
-        data() {
-            return {
+export default {
+  data () {
+    return {
 
-            }
-        },
-        computed: {
-            ...mapGetters({
-               homeText: 'home/text' 
-            })
-        },
-        mounted () {
-
-        },
-        methods: {
-            ...mapActions({
-                changeHomeText: 'home/updateText'
-            }),
-            change () {
-                this.changeHomeText('修改了')
-            }
-        }
     }
+  },
+  computed: {
+    ...mapGetters({
+      homeText: 'home/text'
+    })
+  },
+  mounted () {
+
+  },
+  methods: {
+    ...mapActions({
+      changeHomeText: 'home/updateText'
+    }),
+    change () {
+      this.changeHomeText('修改了')
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

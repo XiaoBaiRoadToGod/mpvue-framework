@@ -8,7 +8,7 @@ import home from './modules/home'
 
 Vue.use(Vuex)
 const modules = {
-    home
+  home
 }
 // 自动注册 vuex 模块
 
@@ -22,24 +22,24 @@ const modules = {
 // })
 
 const store = new Vuex.Store({
-    debug: true,
-    state: {
-        text: '点我'
-    },
-    getters: {
-        text (state, getters) {
-            return state.text
-        }
-    },
-    actions: {
+  debug: true,
+  state: {
+    text: '点我'
+  },
+  getters: {
+    text (state, getters) {
+      return state.text
+    }
+  },
+  actions: {
 
-    },
-    mutations: {
-        updateText (state, data) {
-            state.text = data
-        }
-    },
-    modules
+  },
+  mutations: {
+    updateText (state, data) {
+      state.text = data
+    }
+  },
+  modules
 })
 
 export default store

@@ -8,25 +8,25 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 export default {
-    data() {
-        return {
+  data () {
+    return {
 
-        }
-    },
-    computed: {
-        ...mapGetters(['text'])
-    },
-    methods: {
-        ...mapMutations(['updateText']),
-        onClick() {
-            wx.navigateTo({
-                url: '/home/index'
-            })
-        },
-        editText () {
-            this.updateText('修改了')
-        }
     }
+  },
+  computed: {
+    ...mapGetters(['text'])
+  },
+  methods: {
+    ...mapMutations(['updateText']),
+    onClick () {
+      wx.navigateTo({
+        url: '/home/index'
+      })
+    },
+    editText () {
+      this.updateText('修改了')
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
