@@ -1,6 +1,9 @@
 <template>
     <div>
-        {{ 'text:' + text }}
+        <div class="text" >
+            {{ 'text:' + text }}
+        </div>
+        
         <van-button @click="editText" type="default" class="edit-text" >修改text</van-button>
         <van-button @click="onClick" type="primary" >进入分包页面</van-button>
     </div>
@@ -30,7 +33,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.text {
+    color: $default-color;
+}
 </style>
 
 
