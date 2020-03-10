@@ -3,12 +3,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import home from './modules/home'
+import user from './modules/user'
 // const requireContext = require('../utils/require-context')
 // const path = require('path')
 
 Vue.use(Vuex)
 const modules = {
-  home
+  home,
+  user
 }
 // 自动注册 vuex 模块
 

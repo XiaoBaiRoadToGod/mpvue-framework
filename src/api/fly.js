@@ -1,16 +1,22 @@
 import Fly from 'flyio/dist/npm/wx'
 import baseUrlApi from './baseUrl'
+import { getSessionId } from '@/utils/auth'
 
 const flyio = new Fly()
 
 // http 请求拦截器
-flyio.interceptors.request.use((req) => {
+flyio.interceptors.request.use((cig) => {
   wx.showNavigationBarLoading()
-  req.baseURL = baseUrlApi
-
-  // req.headers = { 'sessionId': 'o306K5fqSt-mkcp7Ue3MkTZVlH1c' }
-  console.log(req)
-  return req
+  cig.baseURL = baseUrlApi
+  let sessionId = getSessionId('sessionId')
+  cig.baseURL = baseUrlApi
+  cig.headers = { 'sessionId': sessionId }
+  if (cig.method === 'POST' && cig.qs) {
+    cig.headers = { 'sessionId': sessionId, 'Content-Type': 'application/x-www-form-urlencoded' }
+  }
+  // cig.headers = { 'sessionId': 'o306K5fqSt-mkcp7Ue3MkTZVlH1c' }
+  //   console.log(cig)
+  return cig
 })
 
 flyio.interceptors.response.use(
