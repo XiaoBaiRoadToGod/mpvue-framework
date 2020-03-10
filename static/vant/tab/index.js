@@ -3,19 +3,29 @@ VantComponent({
     relation: {
         name: 'tabs',
         type: 'ancestor',
-        linked(target) {
-            this.parent = target;
-        },
-        unlinked() {
-            this.parent = null;
-        }
+        current: 'tab',
     },
     props: {
-        dot: Boolean,
-        info: null,
-        title: String,
-        disabled: Boolean,
-        titleStyle: String,
+        dot: {
+            type: Boolean,
+            observer: 'update'
+        },
+        info: {
+            type: null,
+            observer: 'update'
+        },
+        title: {
+            type: String,
+            observer: 'update'
+        },
+        disabled: {
+            type: Boolean,
+            observer: 'update'
+        },
+        titleStyle: {
+            type: String,
+            observer: 'update'
+        },
         name: {
             type: [Number, String],
             value: '',
@@ -23,13 +33,6 @@ VantComponent({
     },
     data: {
         active: false
-    },
-    watch: {
-        title: 'update',
-        disabled: 'update',
-        dot: 'update',
-        info: 'update',
-        titleStyle: 'update'
     },
     methods: {
         getComputedName() {

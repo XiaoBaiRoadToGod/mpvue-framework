@@ -25,6 +25,9 @@ VantComponent({
             value: false
         }
     },
+    data: {
+        show: false,
+    },
     created() {
         const { statusBarHeight } = wx.getSystemInfoSync();
         this.setData({ statusBarHeight });
@@ -33,9 +36,8 @@ VantComponent({
         show() {
             const { duration, onOpened } = this.data;
             clearTimeout(this.timer);
-            this.setData({
-                show: true
-            }, onOpened);
+            this.setData({ show: true });
+            wx.nextTick(onOpened);
             if (duration > 0 && duration !== Infinity) {
                 this.timer = setTimeout(() => {
                     this.hide();
@@ -45,9 +47,8 @@ VantComponent({
         hide() {
             const { onClose } = this.data;
             clearTimeout(this.timer);
-            this.setData({
-                show: false
-            }, onClose);
+            this.setData({ show: false });
+            wx.nextTick(onClose);
         },
         onTap(event) {
             const { onClick } = this.data;

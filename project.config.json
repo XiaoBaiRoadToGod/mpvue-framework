@@ -22,7 +22,7 @@
 	"miniprogram": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wx46a241c600dd1e44",
-	"projectname": "miniprogram",
+	"projectname": "yuezidao-integral",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

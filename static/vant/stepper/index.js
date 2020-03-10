@@ -11,11 +11,37 @@ VantComponent({
     field: true,
     classes: ['input-class', 'plus-class', 'minus-class'],
     props: {
-        value: null,
+        value: {
+            type: null,
+            observer(value) {
+                if (value === '') {
+                    return;
+                }
+                const newValue = this.range(value);
+                if (typeof newValue === 'number' && +this.data.value !== newValue) {
+                    this.setData({ value: newValue });
+                }
+            },
+        },
         integer: Boolean,
         disabled: Boolean,
-        inputWidth: null,
-        buttonSize: null,
+        inputWidth: {
+            type: null,
+            observer() {
+                this.setData({
+                    inputStyle: this.computeInputStyle()
+                });
+            },
+        },
+        buttonSize: {
+            type: null,
+            observer() {
+                this.setData({
+                    inputStyle: this.computeInputStyle(),
+                    buttonStyle: this.computeButtonStyle()
+                });
+            }
+        },
         asyncChange: Boolean,
         disableInput: Boolean,
         decimalLength: {
@@ -43,29 +69,11 @@ VantComponent({
             value: true
         },
         disablePlus: Boolean,
-        disableMinus: Boolean
-    },
-    watch: {
-        value(value) {
-            if (value === '') {
-                return;
-            }
-            const newValue = this.range(value);
-            if (typeof newValue === 'number' && +this.data.value !== newValue) {
-                this.setData({ value: newValue });
-            }
+        disableMinus: Boolean,
+        longPress: {
+            type: Boolean,
+            value: true
         },
-        inputWidth() {
-            this.set({
-                inputStyle: this.computeInputStyle()
-            });
-        },
-        buttonSize() {
-            this.set({
-                inputStyle: this.computeInputStyle(),
-                buttonStyle: this.computeButtonStyle()
-            });
-        }
     },
     data: {
         focus: false,
@@ -131,6 +139,9 @@ VantComponent({
             this.onChange();
         },
         onTouchStart(event) {
+            if (!this.data.longPress) {
+                return;
+            }
             clearTimeout(this.longPressTimer);
             const { type } = event.currentTarget.dataset;
             this.type = type;
@@ -142,6 +153,9 @@ VantComponent({
             }, LONG_PRESS_START_TIME);
         },
         onTouchEnd() {
+            if (!this.data.longPress) {
+                return;
+            }
             clearTimeout(this.longPressTimer);
         },
         triggerInput(value) {

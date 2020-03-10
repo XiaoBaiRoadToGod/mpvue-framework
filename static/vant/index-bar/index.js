@@ -12,6 +12,7 @@ VantComponent({
     relation: {
         name: 'index-anchor',
         type: 'descendant',
+        current: 'index-bar',
         linked() {
             this.updateData();
         },
@@ -74,12 +75,14 @@ VantComponent({
             ]);
         },
         setAnchorsRect() {
-            return Promise.all(this.children.map(anchor => (anchor.getRect('.van-index-anchor-wrapper').then((rect) => {
+            return Promise.all(this.children.map(anchor => anchor
+                .getRect('.van-index-anchor-wrapper')
+                .then((rect) => {
                 Object.assign(anchor, {
                     height: rect.height,
                     top: rect.top + this.data.scrollTop
                 });
-            }))));
+            })));
         },
         setListRect() {
             return this.getRect('.van-index-bar').then((rect) => {
@@ -109,7 +112,9 @@ VantComponent({
             }
         },
         getAnchorRect(anchor) {
-            return anchor.getRect('.van-index-anchor-wrapper').then((rect) => ({
+            return anchor
+                .getRect('.van-index-anchor-wrapper')
+                .then((rect) => ({
                 height: rect.height,
                 top: rect.top
             }));
@@ -142,7 +147,8 @@ VantComponent({
             if (sticky) {
                 let isActiveAnchorSticky = false;
                 if (active !== -1) {
-                    isActiveAnchorSticky = children[active].top <= stickyOffsetTop + scrollTop;
+                    isActiveAnchorSticky =
+                        children[active].top <= stickyOffsetTop + scrollTop;
                 }
                 children.forEach((item, index) => {
                     if (index === active) {
@@ -198,7 +204,7 @@ VantComponent({
                             data: {
                                 active: false,
                                 anchorStyle: '',
-                                wrapperStyle: '',
+                                wrapperStyle: ''
                             }
                         });
                     }
@@ -229,12 +235,14 @@ VantComponent({
                 return;
             }
             this.scrollToAnchorIndex = index;
-            const anchor = this.children.filter(item => item.data.index === this.data.indexList[index])[0];
-            this.$emit('select', anchor.data.index);
-            anchor && wx.pageScrollTo({
-                duration: 0,
-                scrollTop: anchor.top
-            });
+            const anchor = this.children.find((item) => item.data.index === this.data.indexList[index]);
+            if (anchor) {
+                this.$emit('select', anchor.data.index);
+                wx.pageScrollTo({
+                    duration: 0,
+                    scrollTop: anchor.top
+                });
+            }
         }
     }
 });
